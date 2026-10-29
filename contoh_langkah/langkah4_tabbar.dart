@@ -20,16 +20,21 @@ class DompetkuApp extends StatelessWidget {
   }
 }
 
+// ---------------------------------------------------------------------
+// HALAMAN UTAMA (berisi TabBar)
+// ---------------------------------------------------------------------
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // DefaultTabController menghubungkan TabBar dengan TabBarView
     return DefaultTabController(
-      length: 3,
+      length: 3, // jumlah tab
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Dompetku'),
+          // TabBar diletakkan di bagian bawah AppBar
           bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.receipt_long), text: 'Transaksi'),
@@ -38,6 +43,7 @@ class DashboardPage extends StatelessWidget {
             ],
           ),
         ),
+        // Isi setiap tab, urutannya harus sama dengan urutan Tab di atas
         body: const TabBarView(
           children: [
             Center(child: Text('Halaman Transaksi')),
